@@ -1,0 +1,10 @@
+{
+  "python.pythonPath": "~/miniconda3/envs/python_ML/bin/",
+  "python.defaultInterpreterPath": "~/miniconda3/envs/python_ML/bin/",
+  "editor.minimap.enabled": false,
+  "editor.formatOnSave": true,
+  "python.linting.enabled": true,
+  "python.linting.pylintEnabled": true,
+  "python.linting.flake8Enabled": false,
+  "python.formatting.provider": "autopep8"
+}
