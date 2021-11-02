@@ -1,9 +1,6 @@
 import os
 import json
 import time
-import numpy as np
-import matplotlib.pyplot as plt
-from PIL import Image
 import torch
 import torch.nn as nn
 import torch.nn.functional as F
@@ -33,8 +30,8 @@ testset = torchvision.datasets.CIFAR10(
 print(trainset.data.shape)
 
 EPOCHS = 100
-LR = 0.2
-BATCH_SIZE = 50
+LR = 0.1
+BATCH_SIZE = 100
 losses = []
 
 trainloader = torch.utils.data.DataLoader(
@@ -46,7 +43,7 @@ net = AutoEncoder()
 loss_function = nn.MSELoss()
 optimizer = optim.SGD(net.parameters(), lr=LR, momentum=0.9)
 
-save_dir = f'./ckpt/SGD_{LR}_MSE_batch{BATCH_SIZE}_{EPOCHS}epoch_unbalanced/'
+save_dir = f'./ckpt/SGD_{LR}_MSE_batch{BATCH_SIZE}_{EPOCHS}epoch_div8_unbalanced/'
 
 os.makedirs(save_dir, exist_ok=True)
 
