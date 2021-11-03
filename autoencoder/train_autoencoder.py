@@ -32,6 +32,7 @@ print(trainset.data.shape)
 EPOCHS = 100
 LR = 0.1
 BATCH_SIZE = 100
+DEVICE = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 losses = []
 
 trainloader = torch.utils.data.DataLoader(
@@ -47,7 +48,6 @@ save_dir = f'./ckpt/SGD_{LR}_MSE_batch{BATCH_SIZE}_{EPOCHS}epoch_div8_unbalanced
 
 os.makedirs(save_dir, exist_ok=True)
 
-DEVICE = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
 
 print("Training Start")
 for epoch in range(EPOCHS):

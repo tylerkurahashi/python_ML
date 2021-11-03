@@ -1,16 +1,25 @@
 from torch import nn
-from AutoEncoder import AutoEncoder
+from torch.nn.modules.activation import Softmax
+from net import AutoEncoder
 
 
 class Classifier(nn.Module):
   def __init__(self):
     super(Classifier, self).__init__()
-    self.ae = AutoEncoder()
+    self.cls = classification()
 
   def forward(self, x):
-    self.ae.encoder(x)
-    
+    x = self.cls(x)
     return x
 
-def cnn():
-  conv1 = nn.Conv2d()
+
+def classification():
+  cls_net = nn.Sequential(
+      nn.Linear(3072 // 8, 3072 // 16),
+      nn.ReLU(),
+      nn.Linear(3072 //16, 3072 // 32),
+      nn.ReLU(),
+      nn.Linear(3072 // 32, 10),
+      nn.Softmax()
+  )
+  return cls_net
