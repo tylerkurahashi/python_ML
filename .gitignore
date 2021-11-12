@@ -1,3 +1,3 @@
 autoencoder/data
-autoencoder/ckpt
 */*/__pycache__
+experiments.md

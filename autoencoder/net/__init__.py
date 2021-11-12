@@ -1,4 +1,3 @@
-from .AutoEncoder import AutoEncoder
-from .Classifier import Classifier
-
-__all__ = ('AutoEncoder', 'Classifier')
+from .AutoEncoder import AutoEncoder, ConvAutoEncoder
+from .Classifier import Classifier, ConvClassifier
+__all__ = ('AutoEncoder', 'ConvClassifier', 'Classifier', 'ConvAutoEncoder')

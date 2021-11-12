@@ -1,4 +1,5 @@
 import numpy as np
+from PIL import Image
 from torch.utils.data import Dataset
 
 
@@ -16,7 +17,12 @@ class CustomDataset(Dataset):
     img, target = np.array(self.data[idx]), np.array(self.targets[idx])
 
     if self.transform is not None:
+      # Converting to PIL object scales the pixel value between 0-1.
+      # Which is identical to normalizing.
+      img = Image.fromarray(img, 'RGB')
       img = self.transform(img)
+
+    img = np.asarray(img)
 
     if self.target_transform is not None:
       target = self.target_transform(target)
